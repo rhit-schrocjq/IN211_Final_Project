@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Template</title>
+    <meta name="description" content="Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css'
+        integrity='sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=='
+        crossorigin='anonymous' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css'
+        integrity='sha512-AZtJoEn5SfSZimv10x5NMO2gaZCdoU8nxtHJK8O4SbKNlQeb1ggkvf0b0QixuuXIjX3Tp5jzBbTWajki81Vl2g=='
+        crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/template.css">
+</head>
+
+<body>
+    <div class="navbar navbar-expand-sm navbar-dark ">
+        <div class="container-fluid ">
+            <a id="logo" class="navbar-brand" href="#">
+                <img id="logoImage" class="card-img" src="images/logo.png" alt="Logo">
+            </a>
+            <div id="topItems" class="col col-12 col-md-3 ">
+
+                <ul class="navbar-nav ">
+                    <li class="nav-item ">
+                        <a id="first" class="nav-link active" data-bs-toggle="tab" href="#">Home</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a id="second" class="nav-link" data-bs-toggle="tab" href="#">Bleh</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a id="third" class="nav-link" data-bs-toggle="tab" href="#">Blah</a>
+
+                    </li>
+            </div>
+            </ul>
+        </div>
+    </div>
+    <div class="container-fluid justify-content-center">
+        <div class="container-fluid content-container">
+            <div class="row" id="templateRow1">
+                <div class="col col-12" id="ResourceColumn">
+                    <p class="fw-bold" id="Status">Status</p>
+                    <h1 id="Resource">Resource</h1>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow2">
+                <div class="col col-12 col-md-3" id="CountyColumn">
+                    <p class="fw-bold">County: <span id="County"></span></p>
+                </div>
+                <div class="col col-12 col-md-5" id="ResourceTypeColumn">
+                    <p class="fw-bold">Resource Type: <span id="ResourceType"></span></p>
+                </div>
+                <div class="col col-12 col-md-4" id="DateUpdatedColumn">
+                    <p class="fw-bold">Date Updated: <span id="DateUpdated"></span></p>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow3">
+                <div class="col col-12 col-md-12">
+                    <p class="fw-bold">Website: <a href="#Resource" id="website">link</a></p>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow4">
+                <div class="col col-12 col-md-12" id="DescriptionColumn">
+                    <p class="fw-bold">Description</p>
+                    <p id="Description">Description</p>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow5">
+                <div class="col col-12 col-md-12" id="EligibilityColumn">
+                    <p class="fw-bold">Eligibility</p>
+                    <p id="Eligibility">Eligibility</p>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow6">
+                <div class="col col-12 col-md-6" id="ApplicationColumn">
+                    <p class="fw-bold">Application Process</p>
+                    <p id="ApplicationProcess">Application Process</p>
+                </div>
+                <div class="col col-12 col-md-6" id="DocumentationColumn">
+                    <p class="fw-bold">Documentation</p>
+                    <p id="Documentation">Documentation</p>
+                </div>
+            </div>
+
+            <div class="row" id="templateRow7">
+                <div class="col col-12 col-md-6" id="AddressColumn">
+                    <p class="fw-bold">Address</p>
+                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAnCzeGnuCVofrTrSSVKSbm1VLKXPuSJRQ
+                        &q=Space+Needle,Seattle+WA">
+                    </iframe>
+                </div>
+                <div class="col col-12 col-md-6" id="ContactInfoAndScheduleColumn">
+                    <div class="row">
+                        <p class="fw-bold">Contact Info</p>
+                        <p id="ContactInfo">Contact Info</p>
+                    </div>
+                    <div class="row">
+                        <p class="fw-bold">Schedule</p>
+                        <p id="Schedule">Schedule</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+        integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js'
+        integrity='sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js'
+        integrity='sha512-rXm6RiYDlz+aZC/ht75tGzeAmCg4gVfBA6Be5s5uENSahiXkgwEy10J2Cc+dxUAW4lRRQYbS5pugMOqBrs8ksw=='
+        crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js'
+        integrity='sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg=='
+        crossorigin='anonymous'></script>
+    <script defer src="/__/firebase/10.4.0/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script src="scripts/template.js"></script>
+</body>
+
+</html>
