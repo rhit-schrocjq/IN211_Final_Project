@@ -1,56 +1,26 @@
-.navbar {
-  font-size: 20px;
-  width: 100%;
-  padding: 0px;
-  background-color: #005CB1;
-  font-family: 'Inter', sans-serif;
-  text-align: right;
 
-}
 
 body {
   font-weight: bold;
 
 }
 
-.nav-item {
-  color: #FFFFFF;
-  width: 100%;
-  padding: 0;
-}
-
-.navbar-nav {
-  width: 100%;
-  padding: 0;
 
 
-}
-
-
-#topItems {
-  float: right;
-  padding: 0;
-}
-
-.container {
-  position: relative;
-  text-align: center;
-  color: white;
-}
 
 .centered {
   position: absolute;
 
   color: white;
-  font-weight: bold;
   text-align: center;
   font-size: 7vw;
   text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
   padding: 0;
+  font-weight: bolder;
 
 }
 
-.bottomText {
+#bottomText {
   text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
   text-align: center;
 
@@ -61,13 +31,19 @@ body {
   font-family: 'Inter', sans-serif;
   padding-top: 35%;
   font-size: 2vw;
+  fill:none;
+  background-color: transparent;
+  border:none;
+  font-weight: bold;
 
 
 }
 
 #introImage {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
 }
 
 .discoverIndiana {
@@ -90,9 +66,8 @@ body {
 
 letter-spacing: -2.93px;
   text-align: left;
-  padding:0;
   color: black;
-  margin-bottom: 100%;
+  /* margin-bottom: 100%; */
   margin-top:0;
   font-size: 6vw;
   float: center;
@@ -101,16 +76,18 @@ letter-spacing: -2.93px;
 }
 .title{
   color: #005CB1;
-  padding-left:15px;
-  padding-top:10px;
-  font-size: 2vw;
 
-  margin:0;
+  font-size: 2vw;
+  margin-left:20%;
+  padding:0;
+  padding-top:10px;
+  /* margin:0; */
   float:left;
 }
 #mapAll {
   width: 100%;
-  height: 100%;
+  height: auto;
+  /* margin-bottom:70%; */
 }
 .library >h1{
   color: rgb(88, 87, 87);
@@ -124,6 +101,115 @@ letter-spacing: -2.93px;
 
 #selectCountyButton{
   background:#C3DCE3;
-  border-color: #507580;
+  /* border-color: #507580; */
+  border:none;
   color:black;
+  font-size: 2vw;
+
 }
+
+#selectCountyButton >span{
+  padding-top: 3px;
+}
+h2{
+  font-weight: bold;
+  letter-spacing: -2px;
+  margin-top:2px;
+  /* padding-top:50px; */
+
+
+
+}
+h2>span{
+  color:#005CB1;
+  letter-spacing: -2.93px;
+
+}
+#updateParagraph{
+  font-weight: normal;
+  font-size: 2.5vw;
+  letter-spacing: 0;
+  color: rgb(88, 87, 87);
+
+
+}
+#skyline{
+  width: 70%;
+  height: 70%;
+}
+#logo{
+  padding:0;
+  margin-top: 10px;
+  margin-left: 5px;
+  /* float: left; */
+}
+#anotherLogo{
+  width: 10%;
+  height: 10%;
+  padding:0;
+  padding-top:10px;
+  /* margin:0; */
+  /* float:left; */
+
+}
+.dropdown{
+  letter-spacing: 0;
+/* width:100%;
+height:100%; */
+margin:0;
+padding:0;
+padding-bottom: 20px;
+  font-size: 2vw;
+
+}
+.navbar {
+  font-size: 20px;
+  width: 100%;
+  padding: 0px;
+  background-color: #005CB1;
+  font-family: 'Inter', sans-serif;
+  text-align: right;
+  margin: 0;
+
+}
+
+body {
+  font-weight: bold;
+
+}
+
+.nav-item {
+  color: #FFFFFF;
+  width: 100%;
+   padding-right: 10%
+}
+
+.navbar-nav {
+  width: 100%;
+  padding: 0;
+
+
+}
+.navlink{
+  padding: 0;
+}
+
+
+#topItems {
+  /* float: right; */
+  padding: 0;
+  margin: 0;
+
+}
+
+.container {
+  /* position: relative;
+  text-align: center; */
+  color: white;
+}
+
+.dropdown>button{
+  color: white;
+  background-color: #005CB1;
+}
+
