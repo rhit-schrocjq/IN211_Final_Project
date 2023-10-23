@@ -1,0 +1,33 @@
+.left {
+    position: absolute;
+  
+    color: white;
+    text-align: left;
+    font-size: 7vw;
+    text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
+    padding: 0;
+    font-weight: bolder;
+  
+  }
+  .middle {
+    position: absolute;
+  
+    color: white;
+    text-align: center;
+    font-size: 7vw;
+    text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
+    padding: 0;
+    font-weight: bolder;
+  
+  }
+  .right {
+    position: absolute;
+  
+    color: white;
+    text-align: right;
+    font-size: 7vw;
+    text-shadow: 3px 4px 7px rgba(81, 67, 21, 0.8);
+    padding: 0;
+    font-weight: bolder;
+  
+  }

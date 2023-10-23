@@ -9,6 +9,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+
+
+
   <title>Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   
   <link rel='stylesheet' href="styles/main.css">
+  <link rel='stylesheet' href="styles/browse.css">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -25,6 +31,7 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 
@@ -62,16 +69,14 @@
         </div>
     </div>
     </div>
-  </div>
-  
-  <main>
     <div id="firstRow" class="row  g-0 align-items-center">
       <div class="col col-12">
         <div class="discoverIndiana">
-          <img class=" shadow-lg
-          
-          " id="introImage" src="images/discover.png" alt="Discover Image">
-          <div class="centered">Discover Indiana<br> Resources</div>
+          <img id="introImage" src="images/monument.png" alt="Discover Image">
+          <div class="left">All Housing<br>Resources</div>
+          <div class="middle">All Transportation<br>Resources</div>
+          <div class="right">All Food<br>Resources</div>
+
           <div id="bottomText">Learn More<br>
             <span class="material-symbols-outlined">
               keyboard_arrow_down
@@ -81,70 +86,8 @@
         </div>
       </div>
     </div>
-    <div id="secondRow" class="row  g-0 align-items-center">
-      <div class="col col-6 col-3">
-        <div class="title">
-          <p>211</p>
-        </div>
-      </div>
-    </div>
-    <div id="thirdRow" class="row  g-0 align-items-center">
-      <div class="col col-6 col-3">
-        <div class="library">
-          <p>Resource
-            <br>Library
-          </p>
-          <h1>
-            Find resources near you!
-          </h1>          
-          <button id="selectCountyButton" class="btn btn-primary">Select your county
-            <span class="material-symbols-outlined">
-              arrow_forward
-            </span>
-          </button>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">County
-           </button>
-            <ul class="dropdown-menu dropdown-menu">
-              <li><a href="#">Bartholomew</a></li>
-              <li><a href="#">Brown</a></li>
-              <li><a href="#">Vigo</a></li>
-              <li class="divider"></li>
-              <li><a href="#">About Us</a></li>
-            </ul>
-          </div>
-         
-          <h2>
-            <span class="material-symbols-outlined">
-              bolt
-            </span> UPDATED DAILY
-          </h2>
-          <p id="updateParagraph">
-            Available resources change regularly.
-          </p>
-          <div>
-            <img id="skyline" src="images/skyline.png" alt="Indy Skyline">
-          </div>
-        </div>
-      </div>
-      <div class="col col-6 col-3">
-        <img id="mapAll" src="images/BLUE.png" alt="County Map">
-      </div>
-      <!-- <div id="fourthRow" class="row  g-0 align-items-center">
-        <div class="col col-6 col-3">
-          <img id="anotherLogo" src="images/logoAgain.png" alt="Logo">
-        </div>
-      </div> -->
- 
-  </main>
-
-
-
-
-
-
-  </script>
-  <script src="scripts/main.js"></script>
+  
+<script src="scripts/browse.js"></script>
 
 
 </body>
