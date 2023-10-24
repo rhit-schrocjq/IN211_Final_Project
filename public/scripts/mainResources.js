@@ -1,12 +1,12 @@
 
 main = function () {
-  document.querySelector("#first").onclick = (event) => {
+  document.getElementById("first").onclick = (event) => {
     window.open('index.html')
   }
-  document.querySelector("#second").onclick = (event) => {
+  document.getElementById("second").onclick = (event) => {
     window.open('resources.html');
   }
-  document.querySelector("#third").onclick = (event) => {
+  document.getElementById("third").onclick = (event) => {
     window.open('template.html');
   }
 }
