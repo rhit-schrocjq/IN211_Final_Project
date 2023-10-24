@@ -1,11 +1,3 @@
-document.getElementById("bottomText").addEventListener("click", myFunction);
-
-function myFunction() {
-  document.getElementById("mapAll").scrollIntoView();
-}
-
-
-
 
 main = function () {
   document.querySelector("#first").onclick = (event) => {
@@ -18,6 +10,20 @@ main = function () {
     window.open('template.html');
   }
 }
+
+
+$('.carousel').carousel()
+
+
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
 
 
 
