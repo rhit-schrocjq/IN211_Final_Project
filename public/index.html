@@ -66,32 +66,37 @@
     </div>
     <div id="secondRow" class="row  g-0 align-items-center">
       <div class="col col-6 col-3">
-        
+
         <div class="title">
           <p>211</p>
-          
+
         </div>
       </div>
-     
+
 
     </div>
-    <div id="thirdRow" class="row  g-0 align-items-center">
-      <div class="col col-6 col-3">
-        
-        <div class="library">
-          <p>Resource 
-          <br>Library
-        </p>
-        <h1>
-        Find resources near you!
-        </h1>
-        <button id="selectCountyButton" class="btn btn-primary" >Select your county</button>
+    <div id="thirdRow" class="row  g-0">
+      <div class="col col-12 col-md-6">
 
-          
+        <div class="library">
+          <p>Resource
+            <br>Library
+          </p>
+          <h1>
+            Find resources near you!
+          </h1>
+          <button id="selectCountyButton" class="btn btn-primary">Select your county</button>
+
         </div>
+
       </div>
-      <div class="col col-6 col-3">
-        <img id="mapAll" src="images/BLUE.png" alt="Discover Image">
+      <div class="col col-12 col-md-6">
+        <div id="indianaImage"></div>
+        <script>
+          $(function () {
+            $("#indianaImage").load("lake.html");
+          });
+        </script>
 
       </div>
 
@@ -105,7 +110,15 @@
 
 
 
-  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
+    integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
+    crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js'
+    integrity='sha512-ToL6UYWePxjhDQKNioSi4AyJ5KkRxY+F1+Fi7Jgh0Hp5Kk2/s8FD7zusJDdonfe5B00Qw+B8taXxF6CFLnqNCw=='
+    crossorigin='anonymous'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js'
+    integrity='sha512-rXm6RiYDlz+aZC/ht75tGzeAmCg4gVfBA6Be5s5uENSahiXkgwEy10J2Cc+dxUAW4lRRQYbS5pugMOqBrs8ksw=='
+    crossorigin='anonymous'></script>
   <script src="scripts/main.js"></script>
 
 
