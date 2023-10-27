@@ -1,4 +1,3 @@
-document.getElementById("bottomText").addEventListener("click", myFunction);
 
 function myFunction() {
   document.getElementById("mapAll").scrollIntoView();
@@ -17,6 +16,8 @@ main = function () {
   document.querySelector("#third").onclick = (event) => {
     window.open('template.html');
   }
+
+  
 }
 
 
