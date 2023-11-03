@@ -107,22 +107,6 @@ padding-bottom: 20px;
   font-size: 2vw;
 
 }
-.navbar {
-  background-color: #005CB1;
-  font-family: 'Inter', sans-serif;
-  text-align: right;
-}
-
-body {
-  font-weight: bold;
-
-}
-
-.nav-link {
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-  justify-content: center;
-}
 
 
 #topItems {

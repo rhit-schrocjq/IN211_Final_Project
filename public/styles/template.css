@@ -1,3 +1,16 @@
+#Resource {
+    font-size: 50px;
+    color:black;
+    padding: 0px 0px 30px 0px;
+    margin: 0px;
+}
+
+.content-label {
+    padding: 10px 0px 2px 0px;
+    width: 100%;
+    margin: 0px;
+}
+
 .content-container {
     padding: 50px 200px;
 }
@@ -6,4 +19,4 @@
     .content-container {
         padding: 50px 10px;
     }
-}; 
+}

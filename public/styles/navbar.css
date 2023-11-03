@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #005CB1;
+    font-family: 'Inter', sans-serif;
+    text-align: right;
+  }
+  
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    justify-content: center;
+}

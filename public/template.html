@@ -13,7 +13,7 @@
         integrity='sha512-AZtJoEn5SfSZimv10x5NMO2gaZCdoU8nxtHJK8O4SbKNlQeb1ggkvf0b0QixuuXIjX3Tp5jzBbTWajki81Vl2g=='
         crossorigin='anonymous' />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/template.css">
 </head>
 
@@ -50,62 +50,61 @@
 
             <div class="row" id="templateRow2">
                 <div class="col col-12 col-md-3" id="CountyColumn">
-                    <p class="fw-bold">County: <span id="County"></span></p>
+                    <p class="fw-bold content-label">County: <span id="County"></span></p>
                 </div>
                 <div class="col col-12 col-md-5" id="ResourceTypeColumn">
-                    <p class="fw-bold">Resource Type: <span id="ResourceType"></span></p>
+                    <p class="fw-bold content-label">Resource Type: <span id="ResourceType"></span></p>
                 </div>
                 <div class="col col-12 col-md-4" id="DateUpdatedColumn">
-                    <p class="fw-bold">Date Updated: <span id="DateUpdated"></span></p>
+                    <p class="fw-bold content-label">Date Updated: <span id="DateUpdated"></span></p>
                 </div>
             </div>
 
             <div class="row" id="templateRow3">
                 <div class="col col-12 col-md-12">
-                    <p class="fw-bold">Website: <a href="#Resource" id="website">link</a></p>
+                    <p class="fw-bold content-label">Website: <a href="#Resource" id="Website" target="_blank" rel="noopener noreferrer">link</a></p>
                 </div>
             </div>
 
             <div class="row" id="templateRow4">
                 <div class="col col-12 col-md-12" id="DescriptionColumn">
-                    <p class="fw-bold">Description</p>
+                    <p class="fw-bold content-label">Description</p>
                     <p id="Description">Description</p>
                 </div>
             </div>
 
             <div class="row" id="templateRow5">
                 <div class="col col-12 col-md-12" id="EligibilityColumn">
-                    <p class="fw-bold">Eligibility</p>
+                    <p class="fw-bold content-label">Eligibility</p>
                     <p id="Eligibility">Eligibility</p>
                 </div>
             </div>
 
             <div class="row" id="templateRow6">
-                <div class="col col-12 col-md-6" id="ApplicationColumn">
-                    <p class="fw-bold">Application Process</p>
-                    <p id="ApplicationProcess">Application Process</p>
-                </div>
-                <div class="col col-12 col-md-6" id="DocumentationColumn">
-                    <p class="fw-bold">Documentation</p>
-                    <p id="Documentation">Documentation</p>
+                <div class="col col-12 col-md-12" id="ApplicationColumn">
+                    <p class="fw-bold content-label">Application Process and Documentation</p>
+                    <p id="ApplicationProcess">Application Process and Documentation</p>
                 </div>
             </div>
 
             <div class="row" id="templateRow7">
                 <div class="col col-12 col-md-6" id="ContactInfoAndScheduleColumn">
                     <div class="row">
-                        <p class="fw-bold">Contact Info</p>
+                        <p class="fw-bold content-label">Contact Info</p>
                         <p id="ContactInfo">Contact Info</p>
                     </div>
                     <div class="row">
-                        <p class="fw-bold">Schedule</p>
+                        <p class="fw-bold content-label">Schedule</p>
                         <p id="Schedule">Schedule</p>
                     </div>
                 </div>
                 <div class="col col-12 col-md-6" id="AddressColumn">
-                    <p class="fw-bold">Address</p>
-                    <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAnCzeGnuCVofrTrSSVKSbm1VLKXPuSJRQ
-                        &q=Space+Needle,Seattle+WA">
+                    <p class="fw-bold content-label">Address</p>
+                    <iframe id="Address" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/directions
+                    ?key=AIzaSyAnCzeGnuCVofrTrSSVKSbm1VLKXPuSJRQ
+                    &origin=City+Hall,Indiana,IN
+                    &destination=0,0
+                    &avoid=tolls|highways">
                     </iframe>
                 </div>
             </div>
