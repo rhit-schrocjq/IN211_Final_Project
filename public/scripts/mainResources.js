@@ -9,9 +9,14 @@ main = function () {
     window.open('template.html');
   }
   param = window.location.search.split("=")
-  console.log(param);
   if (param[0] == "?county") {
-    document.getElementById("changingTitle").innerHTML = param[1].slice(0,1).toUpperCase() + param[1].slice(1).toLowerCase() + " County"
+    countyName = param[1].replace(/%20/g, ' ').toLowerCase();
+    spaceIndex = countyName.indexOf(' ')
+    if (spaceIndex != -1) {
+      countyName = countyName.slice(0, spaceIndex + 1) + countyName[spaceIndex + 1].toUpperCase() + countyName.slice(spaceIndex + 2);
+    }
+    countyName = countyName.slice(0,1).toUpperCase() + countyName.slice(1);
+    document.getElementById("changingTitle").innerHTML = countyName + " County"
   }
 }
 
