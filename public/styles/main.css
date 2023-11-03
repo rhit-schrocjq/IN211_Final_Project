@@ -208,6 +208,16 @@ polygon:hover {
   fill: rgb(0, 229, 255);
 }
 
+polygon:hover {
+  fill: rgb(0, 229, 255);
+}
+
+polygon:active {
+  fill: rgb(222, 222, 222);
+}
+
+text:hover + polygon { background-color: yellow; }
+
 text {
   fill: aliceblue;
 }
