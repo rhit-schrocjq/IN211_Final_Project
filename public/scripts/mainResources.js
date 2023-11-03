@@ -1,4 +1,3 @@
-
 main = function () {
   document.getElementById("first").onclick = (event) => {
     window.open('index.html')
@@ -9,11 +8,14 @@ main = function () {
   document.getElementById("third").onclick = (event) => {
     window.open('template.html');
   }
+  param = window.location.search.split("=")
+  console.log(param);
+  if (param[0] == "?county") {
+    document.getElementById("changingTitle").innerHTML = param[1].slice(0,1).toUpperCase() + param[1].slice(1).toLowerCase() + " County"
+  }
 }
 
-
 $('.carousel').carousel()
-
 
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
@@ -24,8 +26,6 @@ $(document).ready(function(){
   });
 });
 
-
-
-
-
-main();
+document.addEventListener('DOMContentLoaded', (event) => {
+  main();
+});

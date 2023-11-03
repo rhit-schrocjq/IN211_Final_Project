@@ -14,13 +14,13 @@ main = function () {
   const counties = [...document.getElementsByClassName("cls-1")];
   counties.forEach((county) => {
     county.onclick = (event) => {
-      window.open('resources.html')
+      window.open('resources.html?county=' + county.id)
     }
   })
   const countyTexts = [...document.getElementsByClassName("small")];
   countyTexts.forEach((countyText) => {
     countyText.onclick = (event) => {
-      window.open('resources.html')
+      window.open('resources.html?county=' + countyText.innerHTML)
     }
   })
 }
