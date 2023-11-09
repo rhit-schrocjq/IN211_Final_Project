@@ -2,3 +2,22 @@
     color:black;
     font-size: 40px;
   }
+
+  .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+#all-cards{
+  padding-left:30px;
+  padding-right:30px;
+  text-align: left;
+  
+}
+div.col-3{
+  text-transform: capitalize;
+}
+.col-1{
+  text-align: center;
+  justify-content: center;
+}
