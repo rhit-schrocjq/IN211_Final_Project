@@ -23,6 +23,21 @@ main = function () {
       window.open('resources.html?county=' + countyText.innerHTML)
     }
   })
+  const searchButton = document.getElementById('search-button');
+  const searchInput = document.getElementById('search-input');
+  const host = window.location.host;
+  searchInput.addEventListener('input', async function() {
+    const inputValue = searchInput.value;
+    if(inputValue) {
+      try {
+        const response = await fetch(`http://${host}/counties/${inputValue}`);
+        const data = await response.json();
+        console.log(data)
+      } catch (error) {
+        console.log("Error fetching Data: ", error)
+      }
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

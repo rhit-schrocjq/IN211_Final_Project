@@ -6,6 +6,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 const resourcesFilePath = './data/resources.json';
+const countiesFilePath = './data/counties.json';
 
 function SortByName(a, b){
     var aName = a.agency_name.toLowerCase();
@@ -13,9 +14,9 @@ function SortByName(a, b){
     return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
 }
 
-async function readData() {
+async function readData(file) {
     try {
-        const resources = await fs.readFile(resourcesFilePath, 'utf-8');
+        const resources = await fs.readFile(file, 'utf-8');
         return JSON.parse(resources);
     } catch (error) {
         console.error('Error reading data:', error);
@@ -29,13 +30,13 @@ app.listen(PORT, () => {
 });
 
 app.get('/resources', async (req,res) => {
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     res.json(resources);
 })
 
 app.get('/resources/all/:selection', async (req,res) => {
     const {selection} = req.params;
-    let resources = await readData();
+    let resources = await readData(resourcesFilePath);
     if (!resources) {
         return res.status(404).json({error: 'Data not found'});
     }
@@ -51,7 +52,7 @@ app.get('/resources/all/:selection', async (req,res) => {
 
 app.get('/resources/all/:order/:selection', async (req,res) => {
     const {order, selection} = req.params;
-    let resources = await readData();
+    let resources = await readData(resourcesFilePath);
     if (!resources) {
         return res.status(404).json({error: 'Data not found'});
     }
@@ -70,7 +71,7 @@ app.get('/resources/all/:order/:selection', async (req,res) => {
 
 app.get('/resources/county/:county', async (req,res) => {
     const {county} = req.params;
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     const resourcesFiltered = resources.filter(resource => resource.county === county);
     if (!resourcesFiltered) {
         return res.status(404).json({error: 'Data not found'});
@@ -80,7 +81,7 @@ app.get('/resources/county/:county', async (req,res) => {
 
 app.get('/resources/county/:county/:order', async (req,res) => {
     const {county, order} = req.params;
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     const resourcesFiltered = resources.filter(resource => resource.county === county);
     if (!resourcesFiltered) {
         return res.status(404).json({error: 'Data not found'});
@@ -93,7 +94,7 @@ app.get('/resources/county/:county/:order', async (req,res) => {
 
 app.get('/resources/county/:county/:order/:selection', async (req,res) => {
     const {county, order, selection} = req.params;
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     let resourcesFiltered = resources.filter(resource => resource.county === county);
     if (!resourcesFiltered) {
         return res.status(404).json({error: 'Data not found'});
@@ -113,7 +114,7 @@ app.get('/resources/county/:county/:order/:selection', async (req,res) => {
 
 app.get('/resources/county/:county/all/:selection', async (req,res) => {
     const {county, selection} = req.params;
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     let resourcesFiltered = resources.filter(resource => resource.county === county);
     if (!resourcesFiltered) {
         return res.status(404).json({error: 'Data not found'});
@@ -131,7 +132,7 @@ app.get('/resources/county/:county/all/:selection', async (req,res) => {
 app.get('/resources/:taxonomy_code', async (req,res) => {
     const {taxonomy_code} = req.params;
     const params = taxonomy_code.split('+');
-    const resources = await readData();
+    const resources = await readData(resourcesFilePath);
     const taxonomyFilter = resources.filter(resource => resource.taxonomy_code == params[0]);
     const agencyIdFilter = taxonomyFilter.filter(resource => resource.agency_id == params[1]);
     const siteIdFilter = agencyIdFilter.filter(resource => resource.site_id == params[2]);
@@ -142,6 +143,18 @@ app.get('/resources/:taxonomy_code', async (req,res) => {
         return res.status(404).json({error: 'Not Singular Data'});
     }
     res.json(siteIdFilter[0]);
+})
+
+app.get('/counties/:input', async (req,res) => {
+    const {input} = req.params;
+    const data = await readData(countiesFilePath);
+    console.log(data);
+    if(!data) {
+        return res.status(404).json({error: 'Not Singular Data'});
+    }
+    const regex = new RegExp(`.*(${input}).*`, "gi");
+    const countiesFiltered = data.counties.filter(county => regex.test(county))
+    res.json(countiesFiltered);
 })
 
 

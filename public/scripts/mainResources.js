@@ -27,7 +27,8 @@ main = function () {
 
 async function loadData() {
   try {
-    const response = await fetch(`http://localhost:3030/resources/county/${id}`);
+    const host = window.location.host;
+    const response = await fetch(`http://${host}/resources/county/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

@@ -9,3 +9,11 @@
     font-weight: bold;
     justify-content: center;
 }
+
+.color-primary {
+  color: #005CB1;
+}
+
+.color-secondary {
+  color: rgb(50, 50, 50);
+}

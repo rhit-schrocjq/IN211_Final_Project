@@ -83,22 +83,23 @@
               <h2>
                 Find resources near you!
               </h2>
-              <button id="selectCountyButton" class="btn btn-primary my-2">Select your county
+              <div class="input-group">
+                <div class="form-outline">
+                  <input id="search-input" type="search" id="searchCountyForm" class="form-control" />
+                  <label class="form-label" for="searchCountyForm">Enter County</label>
+                </div>
+                <button id="search-button" type="button" class="btn btn-primary">
+                  <span class="material-symbols-outlined" id="arrow">
+                    arrow_forward
+                  </span>
+                </button>
+              </div>
+
+              <button id="selectByCategory" class="btn btn-primary my-2" href="#">Select By Category
                 <span class="material-symbols-outlined" id="arrow">
-                  arrow_forward
+                  arrow_downward
                 </span>
               </button>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle my-2" type="button" data-toggle="dropdown">County
-                </button>
-                <ul class="dropdown-menu dropdown-menu">
-                  <li><a href="#">Bartholomew</a></li>
-                  <li><a href="#">Brown</a></li>
-                  <li><a href="#">Vigo</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">About Us</a></li>
-                </ul>
-              </div>
 
               <h3 class="fw-bold">
                 <span class="material-symbols-outlined" id="updateBolt">

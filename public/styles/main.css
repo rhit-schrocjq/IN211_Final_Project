@@ -159,6 +159,10 @@ h3 {
   letter-spacing: -2.93px;
 }
 
+#countySelector {
+  width: 100%;
+}
+
 @media screen and (max-width:1200px) {
   .content-container {
       padding: 50px 10px;
