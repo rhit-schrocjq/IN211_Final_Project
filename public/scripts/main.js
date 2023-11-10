@@ -105,67 +105,7 @@ main = function () {
 
 }
 
-async function loadBar() {
-  const taxCats = ["Education", "Basic Needs", "Consumer Services", "Criminal Justice and Legal Services", "Environment and Public Health/Safety", "Health Care", "Income Support and Employment", "Individual and Family Life",
-    "Mental Health and Substance Use Disorder Services", "Organizational/Community/International Services"];
-  taxCats.forEach(function (taxonomy_category) {
-    if (taxonomy_category == "Education") {
-      icon = 'school'
-      colorName = 'rgb(217, 131,26)';
-    }
-    if (taxonomy_category == "Basic Needs") {
-      icon = 'home'
-      colorName = 'rgb(0, 0,0)';
 
-    }
-    if (taxonomy_category == "Consumer Services") {
-      icon = 'contract_edit'
-      colorName = 'rgb(74, 75,77)';
-
-    }
-    if (taxonomy_category == "Criminal Justice and Legal Services") {
-      icon = 'local_police'
-      colorName = 'rgb(0, 30,222)';
-
-    }
-    if (taxonomy_category == "Environment and Public Health/Safety") {
-      icon = 'source_environment'
-      colorName = 'rgb(11, 161,88)';
-
-    }
-    if (taxonomy_category == "Health Care") {
-      icon = 'health_and_safety'
-      colorName = 'rgb(161, 11,11)';
-
-    }
-    if (taxonomy_category == "Income Support and Employment") {
-      icon = 'payments'
-      colorName = 'rgb(114, 156,100)';
-
-    }
-    if (taxonomy_category == "Individual and Family Life") {
-      icon = 'diversity_1'
-      colorName = 'rgb(11, 93,161)';
-
-    }
-    if (taxonomy_category == "Mental Health and Substance Use Disorder Services") {
-      icon = 'stress_management'
-      colorName = 'rgb(51, 176,138)';
-
-    }
-    if (taxonomy_category == "Organizational/Community/International Services") {
-      icon = 'volunteer_activism'
-      colorName = 'rgb(166, 41, 155)';
-
-    }
-
-    const colIcon = createAElement(['col-2'], `<span id="child" style="color:${colorName};" class="material-symbols-outlined">${icon}</span>`);
-    document.getElementById("menuBar").appendChild(colIcon);
-    colIcon.onclick = (event) => {
-      filterSelection(`${taxonomy_category}`);
-    }
-  })
-}
 
 
 function createDivElement(classes, text) {
@@ -268,9 +208,9 @@ function createCard(taxonomy_category) {
 
 
   const card = createDivElement(['card']);
-  // card.onclick = (event) => {
-  //   window.open('template.html?id=' + item.taxonomy_code + "+" + item.agency_id + "+" + item.site_id);
-  // }
+  card.onclick = (event) => {
+    window.open('categories.html?taxonomy_category=' + taxonomy_category);
+  }
   card.appendChild(cardBody);
 
   const outer = createDivElement(['col-4']);
