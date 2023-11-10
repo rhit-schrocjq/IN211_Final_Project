@@ -98,6 +98,7 @@ async function loadBar() {
 }
 
 async function loadData(filter = "") {
+  document.getElementById('all-cards').innerHTML = "<div class='d-flex justify-content-center'><span class='material-symbols-outlined'>hourglass_empty</span></div><div class='d-flex justify-content-center'>Loading...</div>"
   try {
     const host = window.location.host;
     const response = await fetch(`http://${host}/resources/county/${id}${filter}`);

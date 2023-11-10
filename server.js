@@ -117,13 +117,11 @@ app.get('/resources/county/:county/:order/:selection', async (req, res) => {
 app.get('/resources/county/:county/:taxonomy_category/:query/:queryType/:order/:selection', async (req, res) => {
     const { county, taxonomy_category, query, queryType, order, selection} = req.params;
     const resources = await readData(resourcesFilePath);
-    console.log(req.params)
     const resourcesFilter1 = resources.filter(resource => resource.county === county);
     if (!resourcesFilter1) {
         return res.status(404).json({ error: 'Data not found' });
     }
     const taxCatUpdate = taxonomy_category.replace(/_/g, "/");
-    console.log(taxCatUpdate)
     const resourcesFilter2 = (taxonomy_category != "none") ? resourcesFilter1.filter(resource => resource.taxonomy_category === taxCatUpdate) : resourcesFilter1;
     if (!resourcesFilter2) {
         return res.status(404).json({ error: 'Data not found' });
@@ -178,6 +176,27 @@ app.get('/resources/:taxonomy_code', async (req, res) => {
         return res.status(404).json({ error: 'Not Singular Data' });
     }
     res.json(siteIdFilter[0]);
+})
+
+app.get('/resources/taxonomy_category/:taxonomy_category/:order/:selection', async (req, res) => {
+    const { taxonomy_category } = req.params;
+    const resources = await readData(resourcesFilePath);
+    const resourcesFilter1 = resources.filter(resource => resource.taxonomy_category === taxonomy_category);
+    if (!resourcesFilter1) {
+        return res.status(404).json({ error: 'Data not found' });
+    }
+    if (order == "A") {
+        resourcesFilter1.sort(SortByName);
+    }
+    const selectionArray = selection.split('-');
+    let resourcesFilter2 = [];
+    if (selectionArray.length === 1) {
+        resourcesFilter2 = resourcesFilter1[selectionArray[0]];
+    }
+    else if (selectionArray.length === 2) {
+        resourcesFilter2 = resourcesFilter1.slice(selectionArray[0], selectionArray[1]);
+    }
+    res.json(resourcesFilter2);
 })
 
 app.get('/counties/:input', async (req, res) => {
