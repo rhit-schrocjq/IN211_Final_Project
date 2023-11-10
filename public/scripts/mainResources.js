@@ -27,7 +27,8 @@ main = function () {
     }
     countyName = countyName.slice(0, 1).toUpperCase() + countyName.slice(1);
     id = countyName;
-    document.getElementById("changingTitle").innerHTML = countyName + " County"
+    document.getElementById("pageTitle").innerHTML = countyName + " County";
+    document.getElementById("changingTitle").innerHTML = countyName + " County";
   }
   loadBar();
   document.getElementById("enableSort").onclick = (event) => {
@@ -56,6 +57,13 @@ main = function () {
   document.getElementById("printButton").onclick = (event) => {
     window.print();
   }
+  document.getElementById("resetFilter").onclick = (event) => {
+    query = "none";
+    taxonomy_category = "none";
+    document.getElementById("filterInput").value = "";
+    document.getElementById("resetFilter").classList.remove(["color-tertiary"]);
+    loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+  }
   document.getElementById("radioName").onclick = (event) => {
     document.getElementById("radioDescription").classList.remove(["active"]);
     document.getElementById("radioName").classList.add(["active"]);
@@ -69,8 +77,10 @@ main = function () {
   document.getElementById("filterButton").onclick = (event) => {
     if (document.getElementById("filterInput").value) {
       query = document.getElementById("filterInput").value;
+      document.getElementById("resetFilter").classList.add(["color-tertiary"]);
     } else {
       query = "none";
+      document.getElementById("resetFilter").classList.remove(["color-tertiary"]);
     }
     console.log([taxonomy_category, query, queryType, order, selection])
     loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
@@ -129,6 +139,7 @@ async function loadBar() {
     colIcon.innerHTML = `<span style="color:${colorName};" class="material-symbols-outlined">${icon}</span>`;
     colIcon.onclick = (event) => {
       taxonomy_category = taxCat;
+      document.getElementById("resetFilter").classList.add(["color-tertiary"]);
       loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
     }
     const colText = document.createElement('button');
@@ -136,6 +147,7 @@ async function loadBar() {
     colText.innerHTML = `${iconTitle}`;
     colText.onclick = (event) => {
       taxonomy_category = taxCat;
+      document.getElementById("resetFilter").classList.add(["color-tertiary"]);
       loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
     }
     document.getElementById("filterRow1").appendChild(colIcon);

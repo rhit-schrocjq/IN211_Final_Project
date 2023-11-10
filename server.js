@@ -144,6 +144,20 @@ app.get('/resources/county/:county/:taxonomy_category/:query/:queryType/:order/:
     if (!resourcesFilter3) {
         return res.status(404).json({ error: 'Data not found' });
     }
+    if (query) {
+        resourcesFilter3.sort(function (a, b) {
+            let aVal = 0;
+            let bVal = 0;
+            const regex1 = new RegExp(`^(${query}).*`, "gi");
+            if (regex1.test(a)) {
+                aVal = -1;
+            }
+            if (regex1.test(b)) {
+                bVal = -1;
+            }
+            return aVal - bVal
+        })
+    }
     if (order == "A+") {
         resourcesFilter3.sort(SortByName);
     } else if (order == "A-") {

@@ -15,6 +15,7 @@ async function loadData() {
     } else {
       document.getElementById('Status').style.color = "#C00000";
     }
+    document.getElementById("pageTitle").innerHTML = data.agency_name;
     document.getElementById('Resource').innerHTML = data.agency_name;
     document.getElementById('County').innerHTML = data.county;
     document.getElementById('ResourceType').innerHTML = data.taxonomy_name;
