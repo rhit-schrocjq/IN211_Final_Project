@@ -35,6 +35,9 @@ async function loadData() {
 };
 
 main = function () {
+  document.getElementById("logoImage").onclick = (event) => {
+    window.open('index.html')
+  };
   document.querySelector("#first").onclick = (event) => {
     window.open('index.html')
   }

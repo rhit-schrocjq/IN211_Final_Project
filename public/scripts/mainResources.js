@@ -2,6 +2,9 @@
 let id = ""
 
 main = function () {
+  document.getElementById("logoImage").onclick = (event) => {
+    window.open('index.html')
+  };
   document.getElementById("first").onclick = (event) => {
     window.open('index.html')
   }

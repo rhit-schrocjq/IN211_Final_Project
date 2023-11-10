@@ -1,3 +1,28 @@
+.card-body {
+  text-align: center;
+}
+
+.card {
+  text-align: center;
+  height: 10em;
+}
+
+.card:hover{
+  transform: translate3D(0,-1px,0) scale(1.03);
+  cursor:pointer;
+
+}
+#card-body {
+  text-align: center;
+}
+
+span.material-symbols-outlined {
+  font-size: 35px;
+  padding-right: 25px;
+  padding-left: 0;
+  margin-left: 0;
+}
+
 #discoverIndianaText {
   position: absolute;
 
@@ -21,9 +46,9 @@
   font-family: 'Inter', sans-serif;
   margin-top: 35%;
   font-size: 2vw;
-  fill:none;
+  fill: none;
   background-color: transparent;
-  border:none;
+  border: none;
   font-weight: bold;
   cursor: pointer;
 }
@@ -50,59 +75,64 @@ h1 {
   font-size: 6vw;
 }
 
-.title{
+.title {
   color: #005CB1;
   font-size: 2vw;
-  padding:0;
-  padding-top:10px;
+  padding: 0;
+  padding-top: 10px;
   /* margin:0; */
 }
+
 #mapAll {
   width: 100%;
   height: auto;
   /* margin-bottom:70%; */
 }
-.library >h2{
+
+.library>h2 {
   color: rgb(88, 87, 87);
-  letter-spacing:normal;
+  letter-spacing: normal;
   margin-top: 0;
   padding-top: 0;
 
 }
 
-#selectCountyButton{
-  background:#C3DCE3;
+#selectCountyButton {
+  background: #C3DCE3;
   /* border-color: #507580; */
-  border:none;
-  color:black;
+  border: none;
+  color: black;
 }
 
-#skyline{
+#skyline {
   width: 70%;
   height: 70%;
 }
-#logo{
-  padding:0;
+
+#logo {
+  padding: 0;
   margin-top: 10px;
   margin-left: 5px;
   /* float: left; */
 }
-#anotherLogo{
+
+#anotherLogo {
   width: 10%;
   height: 10%;
-  padding:0;
-  padding-top:10px;
+  padding: 0;
+  padding-top: 10px;
   /* margin:0; */
   /* float:left; */
 
 }
-.dropdown{
+
+.dropdown {
   letter-spacing: 0;
-/* width:100%;
+  /* width:100%;
 height:100%; */
-margin:0;
-padding:0;
-padding-bottom: 20px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px;
   font-size: 2vw;
 
 }
@@ -125,7 +155,7 @@ padding-bottom: 20px;
   font-size: 12px;
 }
 
-.dropdown>button{
+.dropdown>button {
   color: white;
   background-color: #005CB1;
 }
@@ -141,20 +171,20 @@ padding-bottom: 20px;
 
 h2 {
   font-size: 2vw;
-  letter-spacing:normal;
+  letter-spacing: normal;
   color: rgb(88, 87, 87);
 }
 
 h3 {
   font-size: 1.5vw;
-  letter-spacing:0.08vw;
+  letter-spacing: 0.08vw;
   color: rgb(88, 87, 87);
   font-weight: normal;
 }
 
 #updateBolt {
   font-size: 1.5vw;
-  color:#005CB1;
+  color: #005CB1;
   letter-spacing: -2.93px;
 }
 
@@ -168,7 +198,7 @@ h3 {
 
 @media screen and (max-width:1200px) {
   .content-container {
-      padding: 50px 10px;
+    padding: 50px 10px;
   }
 }
 
@@ -196,7 +226,8 @@ h3 {
 }
 
 polygon {
-  cursor: pointer;;
+  cursor: pointer;
+  
 }
 
 polygon:hover {
@@ -207,10 +238,12 @@ polygon:active {
   fill: rgb(222, 222, 222);
 }
 
-polygon:has(+ text:hover) { fill:  rgb(0, 229, 255); }
+polygon:has(+ text:hover) {
+  fill: rgb(0, 229, 255);
+}
 
 text {
   fill: aliceblue;
-  cursor: pointer;;
+  cursor: pointer;
+  ;
 }
-
