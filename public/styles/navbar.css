@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #005CB1;
+    background-color: #004d7c;
     font-family: 'Inter', sans-serif;
     text-align: right;
   }
@@ -15,9 +15,13 @@ body{
 }
 
 .color-primary {
-  color: #005CB1;
+  color: #004d7c;
 }
 
 .color-secondary {
   color: rgb(50, 50, 50);
+}
+
+.color-tertiary {
+  color: rgb(0, 229, 255);
 }
