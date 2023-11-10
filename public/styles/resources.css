@@ -15,6 +15,7 @@
   text-align: left;
   
 }
+
 div.col-4{
   text-transform: capitalize;
 }
@@ -28,16 +29,11 @@ div.col-4{
 }
 
 div.scrollmenu {
-  /* background-color: white; */
-  /* overflow-y: hidden;*/
   overflow-x: scroll;
-    white-space: nowrap;
- 
+  white-space: nowrap;
 }
-div.scrollmenu ::-webkit-scrollbar:horizontal {
-  display: none;
-}
-div.scrollmenu a {
+
+#filterRow1 div {
   display: inline-block;
   color: white;
   text-align: center;
@@ -45,8 +41,27 @@ div.scrollmenu a {
   text-decoration: none;
 }
 
+#filterRow2 div {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+button {
+  white-space: normal;
+  border-width: 0px;
+  background: transparent;
+}
+
+.colIcon {
+  width:200px;
+  height:50px;
+}
+
 div.scrollmenu a:hover {
-  background-color: #777;
+  background-color: #bfbfbf;
 }
 
 @media screen and (max-width:1200px) {
