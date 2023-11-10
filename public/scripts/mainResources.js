@@ -112,10 +112,13 @@ async function loadData(filter = "") {
 
     console.log(Object.keys(data).length);
     const fragment = new DocumentFragment();
+    const printTableBody = document.getElementById("printInsert");
+    printTableBody.innerHTML = "";
 
     for (let j = 0; j < Object.keys(data).length; j++) {
 
       fragment.appendChild(createCard(data[j]));
+      printTableBody.append(createTableRow(data[j]));
     }
     document.getElementById('all-cards').innerHTML = "";
     document.getElementById('all-cards').appendChild(fragment);
@@ -137,7 +140,7 @@ function createDivElement(classes, text) {
 
   return div;
 }
-function iconChecker(item, row) {
+function iconChecker(item) {
   let icon = "";
   let colorName = "";
   const agencyName = item.agency_name.toLowerCase();
@@ -146,65 +149,54 @@ function iconChecker(item, row) {
   if (item.taxonomy_category == "Education") {
     icon = 'school'
     colorName = 'rgb(217, 131,26)';
-  }
-  if (item.taxonomy_category == "Basic Needs") {
+  } else if (item.taxonomy_category == "Basic Needs") {
     icon = 'home'
     colorName = 'rgb(0, 0,0)';
 
-  }
-  if (item.taxonomy_category == "Consumer Services") {
+  } else if (item.taxonomy_category == "Consumer Services") {
     icon = 'contract_edit'
     colorName = 'rgb(74, 75,77)';
 
-  }
-  if (item.taxonomy_category == "Criminal Justice and Legal Services") {
+  } else if (item.taxonomy_category == "Criminal Justice and Legal Services") {
     icon = 'local_police'
     colorName = 'rgb(0, 30,222)';
 
-  }
-  if (item.taxonomy_category == "Environment and Public Health/Safety") {
+  } else if (item.taxonomy_category == "Environment and Public Health/Safety") {
     icon = 'source_environment'
     colorName = 'rgb(11, 161,88)';
 
-  }
-  if (item.taxonomy_category == "Health Care") {
+  } else if (item.taxonomy_category == "Health Care") {
     icon = 'health_and_safety'
     colorName = 'rgb(161, 11,11)';
 
-  }
-  if (item.taxonomy_category == "Income Support and Employment") {
+  } else if (item.taxonomy_category == "Income Support and Employment") {
     icon = 'payments'
     colorName = 'rgb(114, 156,100)';
 
-  }
-  if (item.taxonomy_category == "Individual and Family Life") {
+  } else if (item.taxonomy_category == "Individual and Family Life") {
     icon = 'diversity_1'
     colorName = 'rgb(11, 93,161)';
 
-  }
-  if (item.taxonomy_category == "Mental Health and Substance Use Disorder Services") {
+  } else if (item.taxonomy_category == "Mental Health and Substance Use Disorder Services") {
     icon = 'stress_management'
     colorName = 'rgb(51, 176,138)';
 
-  }
-  if (item.taxonomy_category == "Organizational/Community/International Services") {
+  } else if (item.taxonomy_category == "Organizational/Community/International Services") {
     icon = 'volunteer_activism'
     colorName = 'rgb(166, 41, 155)';
 
   }
 
-
-
   const colIcon = createDivElement(['col-1'], `<span style="color:${colorName};" class="material-symbols-outlined">${icon}</span>`);
   return colIcon;
 
-
 }
+
 function createCard(item) {
   const agencyName = item.agency_name.toLowerCase();
 
   const row = createDivElement(['row']);
-  colIcon = iconChecker(item, row);
+  colIcon = iconChecker(item);
   row.appendChild(colIcon);
   const colTitle = createDivElement(['col-4'], '<h4 class="fw-bold p-0 m-0 color-primary">' + agencyName + '</h4>');
   const colType = createDivElement(['col-3'], 'Type: ' + item.taxonomy_name);
@@ -241,6 +233,36 @@ function createCard(item) {
   outer.appendChild(card);
 
   return outer;
+}
+
+function createTableRow(data) {
+  const row = document.createElement("tr");
+
+  const icon = document.createElement("th");
+  icon.innerHTML = iconChecker(data).innerHTML;
+  row.appendChild(icon);
+
+  const resourceName = document.createElement("th");
+  resourceName.innerHTML = data.agency_name;
+  row.appendChild(resourceName);
+
+  const resourceType = document.createElement("th");
+  resourceType.innerHTML = data.taxonomy_name;
+  row.appendChild(resourceType);
+
+  const website = document.createElement("th");
+  website.innerHTML = data.service_website;
+  row.appendChild(website);
+
+  const contact = document.createElement("th");
+  contact.innerHTML = data.site_number;
+  row.appendChild(contact);
+
+  const address = document.createElement("th");
+  address.innerHTML = data.address_1;
+  row.appendChild(address);
+  
+  return row;
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

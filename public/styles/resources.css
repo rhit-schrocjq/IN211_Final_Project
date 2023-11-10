@@ -76,3 +76,17 @@ div.scrollmenu a:hover {
       padding: 50px 10px;
   }
 }
+
+/*---------------printing--------------*/
+.do-print {
+  display: none;
+}
+
+@media print {
+ .no-print {
+     display: none;
+  }
+  .do-print {
+     display: block;
+  }
+}

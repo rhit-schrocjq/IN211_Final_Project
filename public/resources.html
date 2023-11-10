@@ -39,7 +39,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <body>
-  <nav class="navbar .navbar-fixed-top shadow-sm" id="myNavBar">
+  <nav class="navbar .navbar-fixed-top shadow-sm no-print" id="myNavBar">
     <div class="container-fluid">
         <a id="logo" class="navbar-brand" href="#">
             <img id="logoImage" class="card-img" src="images/logo.png" alt="Logo">
@@ -58,9 +58,9 @@
             </ul>
         </div>
     </div>
-</nav>
+  </nav>
   
-  <div class="container-fluid justify-content-center">
+  <div class="container-fluid justify-content-center no-print">
     <div class="container-fluid content-container">
       <h2 id="changingTitle">Default County</h2>
       <div class="container-fluid">
@@ -73,7 +73,7 @@
           </div>
         </div>
       </div>
-      
+
       <hr>
 
       <div id="all-cards" class="row row-cols-1 g-3">
@@ -81,6 +81,21 @@
       </div>
     </div>
   </div>
+
+  <table class="table-bordered do-print">
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Resource Name</th>
+        <th>Resource Type</th>
+        <th>Website</th>
+        <th>Contact</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody id="printInsert">
+    </tbody>
+  </table>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'
     integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=='
