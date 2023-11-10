@@ -59,12 +59,12 @@
         <div id="discoverIndiana">
           <img class="shadow-lg" id="introImage" src="images/discover.png" alt="Discover Image">
           <div id="discoverIndianaText">Discover Indiana<br> Resources</div>
-          <div id="bottomText">Learn More<br>
+          <h3 id="bottomText">Learn More<br>
             <span class="material-symbols-outlined">
               keyboard_arrow_down
             </span>
 
-          </div>
+          </h3>
         </div>
       </div>
     </div>
@@ -83,22 +83,27 @@
               <h2>
                 Find resources near you!
               </h2>
-              <button id="selectCountyButton" class="btn btn-primary my-2">Select your county
+              <form id="countySelectForm">
+                <div class="input-group">
+                  <div class="form-outline">
+                    <input type="search" id="searchCountyInput" class="form-control" />
+                    <label class="form-label" for="searchCountyInput">Enter County</label>
+                  </div>
+                  <button id="searchCountyButton" type="button" class="btn btn-primary">
+                    <span class="material-symbols-outlined" id="arrow">
+                      arrow_forward
+                    </span>
+                  </button>
+                </div>
+                <select class="form-select" id="searchCountyDropdown" size="5" aria-label="Size 3 select example">
+                </select>
+              </form>
+
+              <button id="selectByCategory" class="btn btn-primary my-2" href="#">Select By Category
                 <span class="material-symbols-outlined" id="arrow">
-                  arrow_forward
+                  arrow_downward
                 </span>
               </button>
-              <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle my-2" type="button" data-toggle="dropdown">County
-                </button>
-                <ul class="dropdown-menu dropdown-menu">
-                  <li><a href="#">Bartholomew</a></li>
-                  <li><a href="#">Brown</a></li>
-                  <li><a href="#">Vigo</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">About Us</a></li>
-                </ul>
-              </div>
 
               <h3 class="fw-bold">
                 <span class="material-symbols-outlined" id="updateBolt">

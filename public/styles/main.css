@@ -19,14 +19,13 @@
 
   color: white;
   font-family: 'Inter', sans-serif;
-  padding-top: 35%;
+  margin-top: 35%;
   font-size: 2vw;
   fill:none;
   background-color: transparent;
   border:none;
   font-weight: bold;
-
-
+  cursor: pointer;
 }
 
 #introImage {
@@ -159,6 +158,14 @@ h3 {
   letter-spacing: -2.93px;
 }
 
+#countySelector {
+  width: 100%;
+}
+
+.form-select {
+  display: none;
+}
+
 @media screen and (max-width:1200px) {
   .content-container {
       padding: 50px 10px;
@@ -188,8 +195,8 @@ h3 {
   text-anchor: center;
 }
 
-polygon:hover {
-  fill: rgb(0, 229, 255);
+polygon {
+  cursor: pointer;;
 }
 
 polygon:hover {
@@ -204,9 +211,6 @@ polygon:has(+ text:hover) { fill:  rgb(0, 229, 255); }
 
 text {
   fill: aliceblue;
-}
-
-.red {
-  fill: red;
+  cursor: pointer;;
 }
 
