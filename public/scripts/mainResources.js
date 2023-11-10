@@ -1,9 +1,9 @@
 let id = "";
 let taxonomy_category = "none";
 let query = "none";
-let queryType = "none"
+let queryType = "agency_name"
 let order = "none"
-let selection = "0-50"
+let selection = "all"
 
 main = function () {
   document.getElementById("logoImage").onclick = (event) => {
@@ -29,8 +29,53 @@ main = function () {
     id = countyName;
     document.getElementById("changingTitle").innerHTML = countyName + " County"
   }
-  loadData();
   loadBar();
+  document.getElementById("enableSort").onclick = (event) => {
+    if (order == "none") {
+      order = "A+";
+      document.getElementById("enableSort").classList.add(["color-tertiary"])
+      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+    } else {
+      order = "none";
+      document.getElementById("enableSort").classList.remove(["color-tertiary"])
+      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+    }
+  }
+  document.getElementById("sortDirection").onclick = (event) => {
+    if (order == "A+") {
+      order = "A-";
+      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+    } else if (order == "A-") {
+      order = "A+";
+      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+    } else {
+      order = "none";
+      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+    }
+  }
+  document.getElementById("printButton").onclick = (event) => {
+    window.print();
+  }
+  document.getElementById("radioName").onclick = (event) => {
+    document.getElementById("radioDescription").classList.remove(["active"]);
+    document.getElementById("radioName").classList.add(["active"]);
+    queryType = "agency_name";
+  }
+  document.getElementById("radioDescription").onclick = (event) => {
+    document.getElementById("radioName").classList.remove(["active"]);
+    document.getElementById("radioDescription").classList.add(["active"]);
+    queryType = "service_description";
+  }
+  document.getElementById("filterButton").onclick = (event) => {
+    if (document.getElementById("filterInput").value) {
+      query = document.getElementById("filterInput").value;
+    } else {
+      query = "none";
+    }
+    console.log([taxonomy_category, query, queryType, order, selection])
+    loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
+  }
+  loadData();
 }
 
 async function loadBar() {

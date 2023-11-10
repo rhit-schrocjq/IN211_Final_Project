@@ -10,7 +10,6 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css'
     integrity='sha512-AZtJoEn5SfSZimv10x5NMO2gaZCdoU8nxtHJK8O4SbKNlQeb1ggkvf0b0QixuuXIjX3Tp5jzBbTWajki81Vl2g=='
     crossorigin='anonymous' />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title>Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,11 +58,11 @@
       </div>
     </div>
   </nav>
-  
+
   <div class="container-fluid justify-content-center no-print">
     <div class="container-fluid content-container">
       <h2 id="changingTitle">Default County</h2>
-      <div class="container-fluid">
+      <div class="container-fluid icon-holder">
         <div id="menuBar" class="scrollmenu">
           <div id="filterRow1" class="row flex-nowrap">
 
@@ -71,6 +70,51 @@
           <div id="filterRow2" class="row flex-nowrap">
 
           </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-between container-fluid">
+        <div class="col-auto">
+          <button id="enableSort" type="button">
+            <span class="material-symbols-outlined">
+              sort
+            </span>
+          </button>
+          <button id="sortDirection" type="button">
+            <span class="material-symbols-outlined">
+              sort_by_alpha
+            </span>
+          </button>
+        </div>
+        <div class="col-auto">
+          <div class="row flex-nowrap">
+            <div class="col-auto">
+              <span class="material-symbols-outlined">
+                filter_list
+              </span>
+            </div>
+            <div class="col-auto">
+              <div class="btn-group">
+                <button id="radioName" type="button" class="btn btn-primary active" aria-current="page">Name</button>
+                <button id="radioDescription" type="button" class="btn btn-primary" aria-current="page">Description</button>
+              </div>
+            </div>
+            <div class="col-auto">
+              <div class="input-group">
+                <div class="form-outline">
+                  <input type="search" id="filterInput" class="form-control" />
+                  <label class="form-label" for="filterInput">Filter</label>
+                </div>
+                <button id="filterButton" type="button" class="btn btn-primary">
+                  Apply
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto">
+          <button id="printButton" type="button" class="btn btn-primary">
+            Print
+          </button>
         </div>
       </div>
 
@@ -111,8 +155,7 @@
     crossorigin='anonymous'></script>
   <script defer src="/__/firebase/10.4.0/firebase-app-compat.js"></script>
   <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
   <script src="scripts/mainResources.js"></script>
 

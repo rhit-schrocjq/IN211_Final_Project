@@ -67,14 +67,20 @@ hr {
   color: gray;
 }
 
+.icon-holder {
+  height:150px;
+  margin-top: 20px;
+}
+
 .colIcon {
   width:200px;
-  height:50px;
+  height:100%;
 }
 
 div.scrollmenu a:hover {
   background-color: #bfbfbf;
 }
+
 
 @media screen and (max-width:1200px) {
   .content-container {
