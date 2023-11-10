@@ -72,7 +72,9 @@ app.get('/resources/all/:order/:selection', async (req, res) => {
 app.get('/resources/county/:county', async (req, res) => {
     const { county } = req.params;
     const resources = await readData(resourcesFilePath);
-    const resourcesFiltered = resources.filter(resource => resource.county === county);
+    console.log(req.params)
+    //const taxonomy_category = getUrlParameter("taxonomy_category");
+    let resourcesFiltered = resources.filter(resource => resource.county === county);
     if (!resourcesFiltered) {
         return res.status(404).json({ error: 'Data not found' });
     }
@@ -112,6 +114,39 @@ app.get('/resources/county/:county/:order/:selection', async (req, res) => {
     res.json(resourcesFiltered);
 })
 
+app.get('/resources/county/:county/:taxonomy_category/:query/:queryType/:order/:selection', async (req, res) => {
+    const { county, taxonomy_category, query, queryType, order, selection} = req.params;
+    const resources = await readData(resourcesFilePath);
+    console.log(req.params)
+    const resourcesFilter1 = resources.filter(resource => resource.county === county);
+    if (!resourcesFilter1) {
+        return res.status(404).json({ error: 'Data not found' });
+    }
+    const taxCatUpdate = taxonomy_category.replace(/_/g, "/");
+    console.log(taxCatUpdate)
+    const resourcesFilter2 = (taxonomy_category != "none") ? resourcesFilter1.filter(resource => resource.taxonomy_category === taxCatUpdate) : resourcesFilter1;
+    if (!resourcesFilter2) {
+        return res.status(404).json({ error: 'Data not found' });
+    }
+    const regex = new RegExp(`.*(${query}).*`, "gi");
+    const resourcesFilter3 = (queryType != "none") ? resourcesFilter2.filter(resource => regex.test(resource[queryType])) : resourcesFilter2;
+    if (!resourcesFilter3) {
+        return res.status(404).json({ error: 'Data not found' });
+    }
+    if (order == "A") {
+        resourcesFilter3.sort(SortByName);
+    }
+    const selectionArray = selection.split('-');
+    let resourcesFilter4 = [];
+    if (selectionArray.length === 1) {
+        resourcesFilter4 = resourcesFilter3[selectionArray[0]];
+    }
+    else if (selectionArray.length === 2) {
+        resourcesFilter4 = resourcesFilter3.slice(selectionArray[0], selectionArray[1]);
+    }
+    res.json(resourcesFilter4);
+})
+
 app.get('/resources/county/:county/all/:selection', async (req, res) => {
     const { county, selection } = req.params;
     const resources = await readData(resourcesFilePath);
@@ -148,7 +183,6 @@ app.get('/resources/:taxonomy_code', async (req, res) => {
 app.get('/counties/:input', async (req, res) => {
     const { input } = req.params;
     const data = await readData(countiesFilePath);
-    console.log(data);
     if (!data) {
         return res.status(404).json({ error: 'Not Singular Data' });
     }
@@ -168,5 +202,6 @@ app.get('/counties/:input', async (req, res) => {
     })
     res.json(countiesFiltered);
 })
+
 
 
