@@ -4,13 +4,13 @@ main = function () {
     window.open('index.html')
   };
   document.querySelector("#first").onclick = (event) => {
-    window.open('index.html')
+    window.open('resources.html?county=' + 'Adams')
   }
   document.querySelector("#second").onclick = (event) => {
-    window.open('resources.html');
+    window.open('resources.html?county=' + 'Hendricks');
   }
   document.querySelector("#third").onclick = (event) => {
-    window.open('template.html');
+    window.open('resources.html?county=' + 'Pike');
   }
   document.getElementById("bottomText").onclick = (event) => {
     document.getElementById("indianaMap").scrollIntoView();

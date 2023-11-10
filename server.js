@@ -212,9 +212,10 @@ app.get('/resources/:taxonomy_code', async (req, res) => {
 })
 
 app.get('/resources/taxonomy_category/:taxonomy_category/:order/:selection', async (req, res) => {
-    const { taxonomy_category } = req.params;
+    const { taxonomy_category, order, selection } = req.params;
     const resources = await readData(resourcesFilePath);
-    const resourcesFilter1 = resources.filter(resource => resource.taxonomy_category === taxonomy_category);
+    const taxCatUpdate = taxonomy_category.replace(/_/g, "/");
+    const resourcesFilter1 = resources.filter(resource => resource.taxonomy_category === taxCatUpdate);
     if (!resourcesFilter1) {
         return res.status(404).json({ error: 'Data not found' });
     }

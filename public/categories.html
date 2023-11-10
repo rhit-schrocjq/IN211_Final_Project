@@ -10,7 +10,6 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css'
     integrity='sha512-AZtJoEn5SfSZimv10x5NMO2gaZCdoU8nxtHJK8O4SbKNlQeb1ggkvf0b0QixuuXIjX3Tp5jzBbTWajki81Vl2g=='
     crossorigin='anonymous' />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title>Media</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,8 +17,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
-  <link rel='stylesheet' href="styles/navbar.css">
   <link rel='stylesheet' href="styles/resources.css">
+  <link rel='stylesheet' href="styles/navbar.css">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet"
@@ -41,27 +40,28 @@
 <body>
   <nav class="navbar .navbar-fixed-top shadow-sm" id="myNavBar">
     <div class="container-fluid">
-        <a id="logo" class="navbar-brand" href="#">
-            <img id="logoImage" class="card-img" src="images/logo.png" alt="Logo">
-        </a>
-        <div class="col-12 col-sm-auto pill-container">
-            <ul class="nav nav-pills row gx-2">
-                <li class="nav-item custom-pills col-12 col-sm-auto">
-                    <a id="first" class="nav-link active" data-bs-toggle="pill" href="#">Home</a>
-                </li>
-                <li class="nav-item custom-pills col-12 col-sm-auto">
-                    <a id="second" class="nav-link" data-bs-toggle="pill" href="#">Link1</a>
-                </li>
-                <li class="nav-item custom-pills col-12 col-sm-auto">
-                    <a id="third" class="nav-link" data-bs-toggle="pill" href="#">Link2</a>
-                </li>
-            </ul>
-        </div>
+      <a id="logo" class="navbar-brand" href="#">
+        <img id="logoImage" class="card-img" src="images/logo.png" alt="Logo">
+      </a>
+      <div class="col-12 col-sm-auto pill-container">
+        <ul class="nav nav-pills row gx-2">
+          <li class="nav-item custom-pills col-12 col-sm-auto">
+            <a id="first" class="nav-link active" data-bs-toggle="pill" href="#">Categories</a>
+          </li>
+          <li class="nav-item custom-pills col-12 col-sm-auto">
+            <a id="second" class="nav-link" data-bs-toggle="pill" href="#">Counties</a>
+          </li>
+          <li class="nav-item custom-pills col-12 col-sm-auto">
+            <a id="third" class="nav-link" data-bs-toggle="pill" href="#">More Information</a>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
-  
+  </nav>
+
   <div class="container-fluid justify-content-center">
     <div class="container-fluid content-container">
+      <hr>
       <h2 id="changingTitle">Default County</h2>
       <div class="container-fluid">
 
@@ -89,9 +89,8 @@
   <script defer src="/__/firebase/10.4.0/firebase-app-compat.js"></script>
   <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <script src="scripts/mainResources.js"></script>
+  <script src="scripts/categories.js"></script>
 
 
 </body>
