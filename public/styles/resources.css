@@ -3,21 +3,54 @@
     font-size: 40px;
   }
 
-  .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
 }
+
 #all-cards{
   padding-left:30px;
   padding-right:30px;
   text-align: left;
   
 }
-div.col-3{
+div.col-4{
   text-transform: capitalize;
 }
 .col-1{
   text-align: center;
   justify-content: center;
+}
+
+.content-container {
+  padding: 50px 200px;
+}
+
+div.scrollmenu {
+  /* background-color: white; */
+  /* overflow-y: hidden;*/
+  overflow-x: scroll;
+    white-space: nowrap;
+ 
+}
+div.scrollmenu ::-webkit-scrollbar:horizontal {
+  display: none;
+}
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
+
+@media screen and (max-width:1200px) {
+  .content-container {
+      padding: 50px 10px;
+  }
 }
