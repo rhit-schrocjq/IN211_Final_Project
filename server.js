@@ -179,7 +179,7 @@ app.get('/resources/:taxonomy_code', async (req, res) => {
 })
 
 app.get('/resources/taxonomy_category/:taxonomy_category/:order/:selection', async (req, res) => {
-    const { taxonomy_category } = req.params;
+    const { taxonomy_category, order, selection } = req.params;
     const resources = await readData(resourcesFilePath);
     const resourcesFilter1 = resources.filter(resource => resource.taxonomy_category === taxonomy_category);
     if (!resourcesFilter1) {

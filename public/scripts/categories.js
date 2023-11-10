@@ -5,6 +5,18 @@ let order = "none"
 let selection = "0-50"
 
 main = function () {
+  param = window.location.search.split("=")
+  if (param[0] == "?taxonomy_category") {
+    taxonomy_category = param[1].replace(/%20/g, ' ').toLowerCase();
+    spaceIndex = taxonomy_category.indexOf(' ')
+    if (spaceIndex != -1) {
+      taxonomy_category = taxonomy_category.slice(0, spaceIndex + 1) + taxonomy_category[spaceIndex + 1].toUpperCase() + taxonomy_category.slice(spaceIndex + 2);
+    }
+    taxonomy_category = taxonomy_category.slice(0, 1).toUpperCase() + taxonomy_category.slice(1);
+    id = taxonomy_category;
+    document.getElementById("changingTitle").innerHTML = taxonomy_category 
+  }
+  
   document.getElementById("logoImage").onclick = (event) => {
     window.open('index.html')
   };
@@ -21,6 +33,7 @@ main = function () {
   if (param[0] == "?county") {
     countyName = param[1].replace(/%20/g, ' ').toLowerCase();
     spaceIndex = countyName.indexOf(' ')
+    console.log(spaceIndex)
     if (spaceIndex != -1) {
       countyName = countyName.slice(0, spaceIndex + 1) + countyName[spaceIndex + 1].toUpperCase() + countyName.slice(spaceIndex + 2);
     }
@@ -29,81 +42,14 @@ main = function () {
     document.getElementById("changingTitle").innerHTML = countyName + " County"
   }
   loadData();
-  loadBar();
 }
 
-async function loadBar() {
-  const taxCats = ["Education", "Basic Needs", "Consumer Services", "Criminal Justice and Legal Services", "Environment and Public Health_Safety", "Health Care", "Income Support and Employment", "Individual and Family Life",
-    "Mental Health and Substance Use Disorder Services", "Organizational_Community_International Services"];
-  taxCats.forEach(function (taxCat) {
-    if (taxCat == "Education") {
-      icon = 'school'
-      colorName = 'rgb(217, 131,26)';
-      iconTitle = "Education";
-    } else if (taxCat == "Basic Needs") {
-      icon = 'home'
-      colorName = 'rgb(0, 0,0)';
-      iconTitle = "Basic Needs";
-    } else if (taxCat == "Consumer Services") {
-      icon = 'contract_edit'
-      colorName = 'rgb(74, 75,77)';
-      iconTitle = "Consumer Services";
-    } else if (taxCat == "Criminal Justice and Legal Services") {
-      icon = 'local_police'
-      colorName = 'rgb(0, 30,222)';
-      iconTitle = "Criminal Justice and Legal Services";
-    } else if (taxCat == "Environment and Public Health_Safety") {
-      icon = 'source_environment'
-      colorName = 'rgb(11, 161,88)';
-      iconTitle = "Environment and Public Health/Safety";
-    } else if (taxCat == "Health Care") {
-      icon = 'health_and_safety'
-      colorName = 'rgb(161, 11,11)';
-      iconTitle = "Health Care";
-    } else if (taxCat == "Income Support and Employment") {
-      icon = 'payments'
-      colorName = 'rgb(114, 156,100)';
-      iconTitle = "Income Support and Employment";
-    } else if (taxCat == "Individual and Family Life") {
-      icon = 'diversity_1'
-      colorName = 'rgb(11, 93,161)';
-      iconTitle = "Individual and Family Life";
-    } else if (taxCat == "Mental Health and Substance Use Disorder Services") {
-      icon = 'stress_management'
-      colorName = 'rgb(51, 176,138)';
-      iconTitle = "Mental Health and Substance Use Disorder Services";
-    } else if (taxCat == "Organizational_Community_International Services") {
-      icon = 'volunteer_activism'
-      colorName = 'rgb(166, 41, 155)';
-      iconTitle = "Community Services";
-    }
-
-    const colIcon = document.createElement('button');
-    colIcon.classList.add('col-1', 'colIcon');
-    colIcon.innerHTML = `<span style="color:${colorName};" class="material-symbols-outlined">${icon}</span>`;
-    colIcon.onclick = (event) => {
-      taxonomy_category = taxCat;
-      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
-    }
-    const colText = document.createElement('button');
-    colText.classList.add('col-1', 'colIcon');
-    colText.innerHTML = `${iconTitle}`;
-    colText.onclick = (event) => {
-      taxonomy_category = taxCat;
-      loadData(`/${taxonomy_category}/${query}/${queryType}/${order}/${selection}`);
-    }
-    document.getElementById("filterRow1").appendChild(colIcon);
-    document.getElementById("filterRow2").appendChild(colText);
-  })
-
-
-}
 
 async function loadData() {
   try {
     const host = window.location.host;
     console.log(taxonomy_category)
-    const response = await fetch(`http://${host}/resources/${taxonomy_category}`);
+    const response = await fetch(`http://${host}/resources/taxonomy_category/${taxonomy_category}/A/${selection}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
