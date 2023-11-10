@@ -29,9 +29,9 @@ div.col-4{
   justify-content: center;
 }
 
-/* .content-container {
+.content-container {
   padding: 50px 200px;
-} */
+}
 
 div.scrollmenu {
   overflow-x: scroll;
