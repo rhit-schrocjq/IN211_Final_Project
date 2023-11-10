@@ -8,8 +8,39 @@
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     justify-content: center;
+    fill: #004d7c;;
 }
+#first{
+  background-color: whitesmoke;
+  
+  color:rgb(50, 50, 50);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#first:hover{
+  transform: translate3D(0,-1px,0) scale(1.03);
+}
+#second{
+  background-color: whitesmoke;
+  color:rgb(50, 50, 50);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#second:hover{
+  transform: translate3D(0,-1px,0) scale(1.03);
 
+}
+#third{
+  background-color: whitesmoke;
+  color:rgb(50, 50, 50);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+#third:hover{
+  transform: translate3D(0,-1px,0) scale(1.03);
+
+}
+.nav-{
+  background-color: #004d7c;;
+
+}
 body{
   background-color: whitesmoke;
 }

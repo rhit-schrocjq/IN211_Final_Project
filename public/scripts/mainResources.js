@@ -6,6 +6,9 @@ let order = "none"
 let selection = "0-50"
 
 main = function () {
+  document.getElementById("logoImage").onclick = (event) => {
+    window.open('index.html')
+  };
   document.getElementById("first").onclick = (event) => {
     window.open('index.html')
   }
