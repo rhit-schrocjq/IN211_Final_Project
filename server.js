@@ -14,6 +14,12 @@ function SortByName(a, b) {
     return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
 }
 
+function SortByNameInverse(a, b) {
+    var aName = a.agency_name.toLowerCase();
+    var bName = b.agency_name.toLowerCase();
+    return ((aName > bName) ? -1 : ((aName < bName) ? 1 : 0));
+}
+
 async function readData(file) {
     try {
         const resources = await fs.readFile(file, 'utf-8');
@@ -56,8 +62,10 @@ app.get('/resources/all/:order/:selection', async (req, res) => {
     if (!resources) {
         return res.status(404).json({ error: 'Data not found' });
     }
-    if (order == "A") {
+    if (order == "A+") {
         resources.sort(SortByName);
+    } else if (order == "A-") {
+        resources.sort(SortByNameInverse);
     }
     selectionArray = selection.split('-');
     if (selectionArray.length === 1) {
@@ -88,8 +96,10 @@ app.get('/resources/county/:county/:order', async (req, res) => {
     if (!resourcesFiltered) {
         return res.status(404).json({ error: 'Data not found' });
     }
-    if (order == "A") {
+    if (order == "A+") {
         resourcesFiltered.sort(SortByName);
+    } else if (order == "A-") {
+        resourcesFiltered.sort(SortByNameInverse);
     }
     res.json(resourcesFiltered);
 })
@@ -101,8 +111,10 @@ app.get('/resources/county/:county/:order/:selection', async (req, res) => {
     if (!resourcesFiltered) {
         return res.status(404).json({ error: 'Data not found' });
     }
-    if (order == "A") {
+    if (order == "A+") {
         resourcesFiltered.sort(SortByName);
+    } else if (order == "A-") {
+        resourcesFiltered.sort(SortByNameInverse);
     }
     selectionArray = selection.split('-');
     if (selectionArray.length === 1) {
@@ -116,6 +128,7 @@ app.get('/resources/county/:county/:order/:selection', async (req, res) => {
 
 app.get('/resources/county/:county/:taxonomy_category/:query/:queryType/:order/:selection', async (req, res) => {
     const { county, taxonomy_category, query, queryType, order, selection} = req.params;
+    console.log(req.params)
     const resources = await readData(resourcesFilePath);
     const resourcesFilter1 = resources.filter(resource => resource.county === county);
     if (!resourcesFilter1) {
@@ -127,20 +140,26 @@ app.get('/resources/county/:county/:taxonomy_category/:query/:queryType/:order/:
         return res.status(404).json({ error: 'Data not found' });
     }
     const regex = new RegExp(`.*(${query}).*`, "gi");
-    const resourcesFilter3 = (queryType != "none") ? resourcesFilter2.filter(resource => regex.test(resource[queryType])) : resourcesFilter2;
+    const resourcesFilter3 = (queryType != "none" && query != "none") ? resourcesFilter2.filter(resource => regex.test(resource[queryType])) : resourcesFilter2;
     if (!resourcesFilter3) {
         return res.status(404).json({ error: 'Data not found' });
     }
-    if (order == "A") {
+    if (order == "A+") {
         resourcesFilter3.sort(SortByName);
+    } else if (order == "A-") {
+        resourcesFilter3.sort(SortByNameInverse);
     }
-    const selectionArray = selection.split('-');
     let resourcesFilter4 = [];
-    if (selectionArray.length === 1) {
-        resourcesFilter4 = resourcesFilter3[selectionArray[0]];
-    }
-    else if (selectionArray.length === 2) {
-        resourcesFilter4 = resourcesFilter3.slice(selectionArray[0], selectionArray[1]);
+    if (selection == "all") {
+        resourcesFilter4 = resourcesFilter3;
+    } else {
+        const selectionArray = selection.split('-');
+        if (selectionArray.length === 1) {
+            resourcesFilter4 = resourcesFilter3[selectionArray[0]];
+        }
+        else if (selectionArray.length === 2) {
+            resourcesFilter4 = resourcesFilter3.slice(selectionArray[0], selectionArray[1]);
+        }
     }
     res.json(resourcesFilter4);
 })
@@ -185,8 +204,10 @@ app.get('/resources/taxonomy_category/:taxonomy_category/:order/:selection', asy
     if (!resourcesFilter1) {
         return res.status(404).json({ error: 'Data not found' });
     }
-    if (order == "A") {
+    if (order == "A+") {
         resourcesFilter1.sort(SortByName);
+    } else if (order == "A-") {
+        resourcesFilter1.sort(SortByNameInverse);
     }
     const selectionArray = selection.split('-');
     let resourcesFilter2 = [];
