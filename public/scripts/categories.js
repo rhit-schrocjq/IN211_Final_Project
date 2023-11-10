@@ -3,20 +3,51 @@ let query = "none";
 let queryType = "none"
 let order = "none"
 let selection = "0-50"
+let taxonomySelect =""
 
 main = function () {
   param = window.location.search.split("=")
   if (param[0] == "?taxonomy_category") {
     taxonomy_category = param[1].replace(/%20/g, ' ').toLowerCase();
-    spaceIndex = taxonomy_category.indexOf(' ')
-    if (spaceIndex != -1) {
-      taxonomy_category = taxonomy_category.slice(0, spaceIndex + 1) + taxonomy_category[spaceIndex + 1].toUpperCase() + taxonomy_category.slice(spaceIndex + 2);
+    if (taxonomy_category=='community services'){
+      taxonomy_category = 'Organizational/Community/International Services';
+      taxonomySelect =taxonomy_category.replace(/\//g, "_");
+      console.log(taxonomySelect)
     }
-    taxonomy_category = taxonomy_category.slice(0, 1).toUpperCase() + taxonomy_category.slice(1);
+    
+    var indexes = [], i = -1;
+    while ((i = taxonomy_category.indexOf(' ', i + 1)) != -1) {
+      indexes.push(i);
+    }
+    console.log(indexes);
+    if (indexes.length==0){
+      taxonomy_category = taxonomy_category.slice(0, 1).toUpperCase() + taxonomy_category.slice(1);
+    }
+    indexes.forEach(function (spaceIndex){
+      if (spaceIndex != -1) {
+        if (taxonomy_category[spaceIndex + 1]!='a'){
+        taxonomy_category = taxonomy_category.slice(0, spaceIndex + 1) + taxonomy_category[spaceIndex + 1].toUpperCase() + taxonomy_category.slice(spaceIndex + 2);
+      }
+      }
+      taxonomy_category = taxonomy_category.slice(0, 1).toUpperCase() + taxonomy_category.slice(1);
+     
+      console.log(taxonomy_category.slice(0, 1))
+    });
+    if (taxonomy_category=='Environment and Public Health/safety'){
+      taxonomy_category = 'Environment and Public Health/Safety';
+      taxonomySelect =taxonomy_category.replace(/\//g, "_");
+      console.log(taxonomySelect)
+    }
     id = taxonomy_category;
-    document.getElementById("changingTitle").innerHTML = taxonomy_category 
+    console.log()
+    document.getElementById("changingTitle").innerHTML = taxonomy_category
+    if (taxonomy_category != 'Organizational/Community/International Services' &&
+        taxonomy_category != 'Environment and Public Health/Safety'){
+      taxonomySelect = taxonomy_category;
+    }
+    console.log(taxonomySelect)
   }
-  
+
   document.getElementById("logoImage").onclick = (event) => {
     window.open('index.html')
   };
@@ -49,7 +80,7 @@ async function loadData() {
   try {
     const host = window.location.host;
     console.log(taxonomy_category)
-    const response = await fetch(`http://${host}/resources/taxonomy_category/${taxonomy_category}/A/${selection}`);
+    const response = await fetch(`http://${host}/resources/taxonomy_category/${taxonomySelect}/A/${selection}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
