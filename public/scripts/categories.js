@@ -40,6 +40,7 @@ main = function () {
     }
     id = taxonomy_category;
     console.log()
+    document.getElementById("pageTitle").innerHTML = taxonomy_category
     document.getElementById("changingTitle").innerHTML = taxonomy_category
     if (taxonomy_category != 'Organizational/Community/International Services' &&
         taxonomy_category != 'Environment and Public Health/Safety'){
