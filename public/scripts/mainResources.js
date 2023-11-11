@@ -135,7 +135,7 @@ async function loadBar() {
     }
 
     const colIcon = document.createElement('button');
-    colIcon.classList.add('col-1', 'colIcon');
+    colIcon.classList.add('col-1', 'colIcon', 'hoverIcon');
     colIcon.innerHTML = `<span style="color:${colorName};" class="material-symbols-outlined">${icon}</span>`;
     colIcon.onclick = (event) => {
       taxonomy_category = taxCat;
@@ -255,14 +255,14 @@ function createCard(item) {
   const row = createDivElement(['row']);
   colIcon = iconChecker(item);
   row.appendChild(colIcon);
-  const colTitle = createDivElement(['col-4'], '<h4 class="fw-bold p-0 m-0 color-primary">' + agencyName + '</h4>');
-  const colType = createDivElement(['col-3'], 'Type: ' + item.taxonomy_name);
-  const colContact = createDivElement(['col-4'], 'Contact: ' + item.site_number);
+  const colTitle = createDivElement(['col-md-4', 'col-12', 'caps'], '<h4 class="fw-bold p-0 m-0 color-primary">' + agencyName + '</h4>');
+  const colType = createDivElement(['col-md-3', 'col-12'], 'Type: ' + item.taxonomy_name);
+  const colContact = createDivElement(['col-md-4', 'col-12'], 'Contact: ' + item.site_number);
 
   const newRow = createDivElement(['row']);
-  const colLink = createDivElement(['col-7'], `<a href=${item.service_website}>${item.service_website}</a>`);
+  const colLink = createDivElement(['col-md-7', 'col-12'], `<a href=${item.service_website}>${item.service_website}</a>`);
   const addressRow = createDivElement(['row']);
-  const colAddress = createDivElement(['col-4'], 'Address: ' + item.address_1);
+  const colAddress = createDivElement(['col-md-4', 'col-12'], 'Address: ' + item.address_1);
 
 
 

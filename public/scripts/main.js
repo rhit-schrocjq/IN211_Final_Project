@@ -27,7 +27,15 @@ main = function () {
   const countyTexts = [...document.getElementsByClassName("small")];
   countyTexts.forEach((countyText) => {
     countyText.onclick = (event) => {
-      window.open('resources.html?county=' + countyText.innerHTML)
+      if (countyText.innerHTML == "VANDER-" || countyText.innerHTML == "BURGH") {
+        window.open('resources.html?county=' + "VANDERBURGH")
+      } else if (countyText.innerHTML == "BARTHO-" || countyText.innerHTML == "LOMEW") {
+        window.open('resources.html?county=' + "BARTHOLOMEW")
+      } else if (countyText.innerHTML == "BLACK-" || countyText.innerHTML == "FORD") {
+        window.open('resources.html?county=' + "BLACKFORD")
+      } else {
+        window.open('resources.html?county=' + countyText.innerHTML)
+      }
     }
   })
   const searchButton = document.getElementById('searchCountyButton');
